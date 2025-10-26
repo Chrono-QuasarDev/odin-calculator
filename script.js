@@ -35,6 +35,8 @@ let secondNumber = '';
 
 
 /*---------------------------------------------------
+The operate fuction calls the correct math fuctions based on the operator
+------------------------------------------------------
 */
 
 function operate(number1, sign, number2) {
@@ -51,3 +53,9 @@ function operate(number1, sign, number2) {
     return divide(number1, number2);
   }
 }
+
+
+/* --------------------------------------------------
+  Event listeners for digit buttons where when clicked, they show the corresponding number on the display 
+-------------------------------------------------------*/
+
