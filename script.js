@@ -51,7 +51,11 @@ function operate(number1, sign, number2) {
 
   } else if (sign === '/') {
     return divide(number1, number2);
+
+  } else {
+    return `${sign}? You think this is a scientific calculator?`;
   }
+
 }
 
 
@@ -59,3 +63,13 @@ function operate(number1, sign, number2) {
   Event listeners for digit buttons where when clicked, they show the corresponding number on the display 
 -------------------------------------------------------*/
 
+
+const button = document.querySelectorAll('.button');
+const displayArea = document.querySelector('.displayArea');
+
+button.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    const displayValue = event.target.textContent;
+    displayArea.textContent = displayArea.textContent + displayValue;
+  });
+})
