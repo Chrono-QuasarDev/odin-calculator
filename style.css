@@ -56,6 +56,9 @@ button:active {
   font-family: 'Bitcount Grid Single', sans-serif;
   padding: 0.7rem;
   border-radius: 10px 10px 0 0;
+  max-width: 337px;
+  overflow-wrap: break-word;
+  text-align: right;
 }
 
 .operator, .equals {
