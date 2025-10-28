@@ -16,7 +16,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-  if (num1 === 0 || num2 === 0) {
+  if (num2 === 0) {
     return "You’re really testing my patience, aren’t you?"
   } else {
     return num1 / num2;
@@ -40,7 +40,10 @@ The operate fuction calls the correct math fuctions based on the operator
 ------------------------------------------------------
 */
 
-function operate(number1, sign, number2) {
+function operate(sign, number1, number2) {
+  number1 = Number(number1);
+  number2 = Number(number2);
+
   if (sign === '+') {
     return add(number1, number2);
 
@@ -68,6 +71,7 @@ function operate(number1, sign, number2) {
 const digitButton = document.querySelectorAll('.digit');
 const operatorButton = document.querySelectorAll('.operator');
 const displayArea = document.querySelector('.displayArea');
+const equalsButton = document.querySelector('.equals');
 
 digitButton.forEach((btn) => {
   btn.addEventListener('click', (event) => {
@@ -80,9 +84,21 @@ digitButton.forEach((btn) => {
 operatorButton.forEach((symbol) => {
   symbol.addEventListener('click', (event) => {
     firstNumber = currentInput;
-    operator = event.target.textContent;
-
     console.log('First number', currentInput);
-    console.log(`Operator ${operator} was clicked`);
+
+    operator = event.target.textContent;
+    currentInput = '';
+
+    console.log(`Operator: ${operator}`);
   })
 });
+
+equalsButton.addEventListener('click', (event) => {
+  secondNumber = currentInput;
+
+  console.log(`Second number: ${secondNumber}`);
+  console.log(`Now calculating ${firstNumber} ${operator} ${secondNumber}`);
+  
+  const result = operate(operator, firstNumber, secondNumber);
+  displayArea.textContent = result;
+})
