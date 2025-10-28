@@ -32,6 +32,7 @@ These are the variables that'll store the each part of the operation.
 let firstNumber = '';
 let operator = null;
 let secondNumber = '';
+let currentInput = '';
 
 
 /*---------------------------------------------------
@@ -64,12 +65,24 @@ function operate(number1, sign, number2) {
 -------------------------------------------------------*/
 
 
-const button = document.querySelectorAll('.button');
+const digitButton = document.querySelectorAll('.digit');
+const operatorButton = document.querySelectorAll('.operator');
 const displayArea = document.querySelector('.displayArea');
 
-button.forEach((btn) => {
+digitButton.forEach((btn) => {
   btn.addEventListener('click', (event) => {
-    const displayValue = event.target.textContent;
-    displayArea.textContent = displayArea.textContent + displayValue;
+    currentInput += event.target.textContent;
+    displayArea.textContent = currentInput;
+    
   });
-})
+});
+
+operatorButton.forEach((symbol) => {
+  symbol.addEventListener('click', (event) => {
+    firstNumber = currentInput;
+    operator = event.target.textContent;
+
+    console.log('First number', currentInput);
+    console.log(`Operator ${operator} was clicked`);
+  })
+});
