@@ -3,8 +3,6 @@
 A simple yet elegant calculator built as part of [The Odin Project](https://www.theodinproject.com/paths/foundations/courses/foundations) Foundations Course.  
 This project helped reinforce **JavaScript fundamentals** — DOM manipulation, event handling, and logical structuring.
 
----
-
 ## 🚀 Features
 
 ✅ Perform basic arithmetic operations — **add**, **subtract**, **multiply**, and **divide**  
@@ -12,7 +10,6 @@ This project helped reinforce **JavaScript fundamentals** — DOM manipulation, 
 ✅ Sleek, minimal **modern UI** with button hover effects  
 ✅ Functional **Clear button** to reset calculations  
 
----
 
 ## 🎯 Learning Objectives
 
@@ -23,7 +20,6 @@ This project was designed to reinforce:
 - Handling user input through both **click** and **keyboard** events
 - Managing application state (storing and resetting numbers, operators, etc.)
 
----
 
 ## 🧠 What I Learned
 
@@ -34,7 +30,6 @@ While building this, I learned:
 - How to implement **keyboard support** that mirrors on-screen button behavior
 - How to give apps personality with **fun error messages** and polish
 
----
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -46,7 +41,6 @@ While building this, I learned:
 | Backspace | Delete last digit |
 | C or Escape | Clear all |
 
----
 
 ## 🧰 Built With
 
@@ -54,7 +48,6 @@ While building this, I learned:
 - **CSS3** — for styling and layout  
 - **JavaScript (ES6)** — for interactivity and logic  
 
----
 
 ## 🧾 Development Phases (Milestones)
 
@@ -67,7 +60,6 @@ While building this, I learned:
 | Phase 5 | Implement Clear button | `Added Clear button functionality` |
 | Phase 6 | Add keyboard support | `✨ Added full keyboard support for calculator` |
 
----
 
 ## 🧠 Future Improvements
 - Add **decimal support** with precision handling  
@@ -75,7 +67,6 @@ While building this, I learned:
 - Animate button presses for better UX  
 - Add sound effects or haptic feedback  
 
----
 
 ## 🏁 Final Thoughts
 
