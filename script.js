@@ -71,7 +71,9 @@ function operate(sign, number1, number2) {
 const digitButton = document.querySelectorAll('.digit');
 const operatorButton = document.querySelectorAll('.operator');
 const displayArea = document.querySelector('.displayArea');
+displayArea.textContent = '0';
 const equalsButton = document.querySelector('.equals');
+const clearButton = document.querySelector('.clear');
 
 digitButton.forEach((btn) => {
   btn.addEventListener('click', (event) => {
@@ -87,8 +89,6 @@ operatorButton.forEach((symbol) => {
 
     if (firstNumber === '') {
       firstNumber = currentInput;
-      console.log('First number', currentInput);
-  
       operator = clickedOperator;
       currentInput = '';
       
@@ -118,9 +118,14 @@ equalsButton.addEventListener('click', (event) => {
     firstNumber = result;
     currentInput = '';
     operator = '';
-
+    firstNumber = '';
   }
-
-  console.log(`Second number: ${secondNumber}`);
-  console.log(`Now calculating ${firstNumber} ${operator} ${secondNumber}`);
 });
+
+clearButton.addEventListener('click',() => {
+  firstNumber = '';
+  secondNumber = '';
+  operator = '';
+  currentInput = '';
+  displayArea.textContent = '0';
+})
