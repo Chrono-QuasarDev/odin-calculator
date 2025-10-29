@@ -83,22 +83,44 @@ digitButton.forEach((btn) => {
 
 operatorButton.forEach((symbol) => {
   symbol.addEventListener('click', (event) => {
-    firstNumber = currentInput;
-    console.log('First number', currentInput);
+    const clickedOperator = event.target.textContent;
 
-    operator = event.target.textContent;
-    currentInput = '';
+    if (firstNumber === '') {
+      firstNumber = currentInput;
+      console.log('First number', currentInput);
+  
+      operator = clickedOperator;
+      currentInput = '';
+      
+    } else if (operator && currentInput) {
+      secondNumber = currentInput;
+      const result = operate(operator, firstNumber, secondNumber);
+      displayArea.textContent = result;
 
-    console.log(`Operator: ${operator}`);
+      firstNumber = result;
+      operator = clickedOperator;
+      currentInput = '';
+      
+    } else {
+      operator = clickedOperator;
+    }
+
   })
 });
 
 equalsButton.addEventListener('click', (event) => {
   secondNumber = currentInput;
 
+  
+  if (firstNumber && secondNumber && operator) {
+    const result = operate(operator, firstNumber, secondNumber);
+    displayArea.textContent = result;
+    firstNumber = result;
+    currentInput = '';
+    operator = '';
+
+  }
+
   console.log(`Second number: ${secondNumber}`);
   console.log(`Now calculating ${firstNumber} ${operator} ${secondNumber}`);
-  
-  const result = operate(operator, firstNumber, secondNumber);
-  displayArea.textContent = result;
-})
+});
