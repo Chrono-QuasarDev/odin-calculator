@@ -56,8 +56,6 @@ function operate(sign, number1, number2) {
   } else if (sign === '/') {
     return divide(number1, number2);
 
-  } else {
-    return `${sign}? You think this is a scientific calculator?`;
   }
 
 }
@@ -128,4 +126,34 @@ clearButton.addEventListener('click',() => {
   operator = '';
   currentInput = '';
   displayArea.textContent = '0';
-})
+});
+
+// KEYBOARD SUPPORT
+
+document.addEventListener('keydown', (event) => {
+  if (event.key >= 0 && event.key <= 9) {
+    currentInput += event.key;
+    displayArea.textContent = currentInput;
+
+  } else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/' ) {
+    firstNumber = currentInput;
+    operator = event.key;
+    currentInput = '';
+
+  } else if (event.key === 'Enter') {
+    secondNumber = currentInput;
+    const result = operate(operator, firstNumber, secondNumber);
+    displayArea.textContent = result;
+
+  } else if (event.key === 'Backspace') {
+    currentInput = currentInput.slice(0, -1);
+    displayArea.textContent = currentInput;
+
+  } else if (event.key === 'Escape' || event.key === 'c') {
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+    currentInput = '';
+    displayArea.textContent = '0';
+  }
+});
